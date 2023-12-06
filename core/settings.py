@@ -48,7 +48,8 @@ DEFAULT_APPS = [
 PROJECT_APPS = [
     'index',
     'users',
-    'categories'
+    'categories',
+    'products'
 ]
 
 

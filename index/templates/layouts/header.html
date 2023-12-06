@@ -90,6 +90,64 @@
                 </span>
             </button>
 
+            {% if user.is_authenticated %}
+            <!-- IF USER IS AUTHENTICATED AND IS SUPER USER -->
+            {% if user.is_superuser %}
+            <div class="dropdown dropdown-profile-desk">
+                <button class="button-menu-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    title="Options">
+                    <img src="{{user.image.url}}" alt="Profile pick" class="header-profile-pick">
+                </button>
+                <ul class="dropdown-menu mt-2">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+
+                            New Category
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            New Article
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            {% else %}
+            <!-- IF USER IS AUTHENTICATED AND NOT IS SUPER USER -->
+            <div class="dropdown dropdown-profile-desk">
+                <button class="button-menu-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    title="Options">
+                    <img src="{{user.image.url}}" alt="Profile pick" class="header-profile-pick">
+                </button>
+                <ul class="dropdown-menu mt-3">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            {% endif %}
+            {% else %}
             <a href="#" class="content-signup">
                 <img src="{% static 'icons/user-not-login.svg' %}" alt="user-not-login">
                 <div>
@@ -100,6 +158,8 @@
 
                 </div>
             </a>
+            {% endif %}
+
 
         </div>
     </nav>

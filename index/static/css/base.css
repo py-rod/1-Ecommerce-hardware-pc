@@ -13,7 +13,8 @@ input:-webkit-autofill:focus {
     --color-logo: #010F1C;
     --primary-color1: #FD4B6B;
     --primary-color2: #010F1C;
-    --border-color1: #FD4B6B;
+    --primary-color3: #085BFF;
+    --border-color1: rgb(224, 224, 224);
 }
 
 

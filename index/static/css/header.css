@@ -52,7 +52,7 @@
     align-items: center;
     height: 40px;
     border-radius: 4px;
-    border: 1px solid var(--border-color1);
+    border: 1px solid var(--primary-color1);
 }
 
 /* DROPDONW CATEGORIES */
@@ -95,7 +95,6 @@
     z-index: 1;
     color: black;
     top: 79px;
-    border: 1px solid var(--border-color);
     box-shadow: 0 5px 5px -5px gray;
 }
 
@@ -105,7 +104,6 @@
     gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(14.3rem, 1fr));
     padding: 20px;
-    font-family: var(--font-plus);
 }
 
 .column-categories>a {
@@ -116,11 +114,9 @@
     text-align: left;
     transition: .1s;
     border-radius: 3px;
-    border: 1px solid var(--border-color);
 }
 
 .column-categories>a:hover {
-    background-color: var(--primary-color);
     color: white;
 }
 
@@ -178,13 +174,13 @@
 }
 
 .content-account-cart>button>svg {
-    fill: var(--color-logo);
+    fill: var(--primary-color2);
     cursor: pointer;
     transition: .2s;
 }
 
 .content-account-cart>button>svg:hover {
-    fill: var(--primary-color1);
+    fill: #4684ff;
 }
 
 
@@ -209,8 +205,6 @@
     color: gray;
 }
 
-
-
 .content-signup>div>p {
     margin: auto;
 }
@@ -219,4 +213,20 @@
     font-weight: 600;
     font-size: .9rem;
     color: var(--primary-color2);
+}
+
+
+/* WHEN USER IS AUTHENTICATED */
+
+.button-menu-profile {
+    padding: 0;
+    width: fit-content;
+    border-radius: 50%;
+    border: none;
+    background-color: inherit;
+}
+
+.header-profile-pick {
+    width: 55px;
+    height: 55px;
 }
