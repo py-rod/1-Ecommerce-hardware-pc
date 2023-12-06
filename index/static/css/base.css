@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+
+:root {
+    --font-roboto: 'Roboto', sans-serif;
+    --color-logo: #010F1C;
+    --primary-color1: #FD4B6B;
+    --primary-color2: #010F1C;
+    --border-color1: #FD4B6B;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: var(--font-roboto);
+}
+
+
+main {
+    width: 100%;
+    max-width: 1900px;
+    margin: 0 auto;
+    flex: 1;
+    padding: 30px;
+}

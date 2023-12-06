@@ -1,0 +1,106 @@
+{% load static %}
+
+<header class="header">
+    <nav class="header-nav">
+        <!-- HEADER MOVIL -->
+        <div class="content-menu-movil">
+            <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample">
+                <img src="{% static 'icons/menu.svg' %}" alt="menu">
+            </button>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
+                        Some text as placeholder. In real life you can have the elements you have chosen. Like, text,
+                        images, lists, etc.
+                    </div>
+                    <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Dropdown button
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- LOGO -->
+        <a href="{% url 'home' %}" class="content-logo">Hardware sv<span>.</span></a>
+
+
+
+        <!-- SEARCH BAR DESK-->
+        <div class="content-search-bar w-50">
+            <!-- DROPDOWN CATEGORIES -->
+            <div class="dropdown-categories">
+                <button class="dropbtn d-flex" onclick="myFunction()">
+                    Categories
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                        style="fill: white ;">
+                        <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
+                    </svg>
+                </button>
+                <div class="dropdown-content-categories" id="dropCategories">
+                    <div class="row-categories">
+                        {% for category in categories %}
+                        <div class="column-categories">
+                            <a href="{{category.get_url}}">{{category.title}}</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <script src="{% static 'js/categories.js' %}"></script>
+
+            <form action="" method="POST" role="search" class="search-desk w-100">
+                <input type="text" name="" id="" placeholder="Search">
+                <button type="submit">
+                    <img src="{% static 'icons/search.svg' %}" alt="seach">
+                </button>
+            </form>
+        </div>
+
+
+
+        <!-- ACCOUNT AND CART -->
+        <div class="content-account-cart">
+            <button type="button" class="position-relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 24 24">
+                    <path
+                        d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z">
+                    </path>
+                    <circle cx="10.5" cy="19.5" r="1.5"></circle>
+                    <circle cx="17.5" cy="19.5" r="1.5"></circle>
+                </svg>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+                    0
+                </span>
+            </button>
+
+            <a href="#" class="content-signup">
+                <img src="{% static 'icons/user-not-login.svg' %}" alt="user-not-login">
+                <div>
+                    <p>
+                        Hello, Sign In</br>
+                        <span>Your Account</span>
+                    </p>
+
+                </div>
+            </a>
+
+        </div>
+    </nav>
+</header>
