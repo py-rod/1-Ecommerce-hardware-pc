@@ -54,7 +54,8 @@ PROJECT_APPS = [
 
 
 THIRD_PARTY_APPS = [
-    'six'
+    'six',
+    'tinymce',
 ]
 
 
