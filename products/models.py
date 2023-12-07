@@ -22,7 +22,7 @@ class Product(models.Model):
     offer_price = models.IntegerField(default=0, blank=True)
     old_price = models.IntegerField(default=0, blank=True)
     percentage = models.CharField(max_length=100, default="", blank=True)
-    stock = models.IntegerField(default=0, blank=False)
+    stock = models.IntegerField(blank=False)
     image = models.ImageField(
         default="./default/placeholder.webp", upload_to=image_upload_to, max_length=5000)
     series = models.ForeignKey(Categories, default="", blank=False,
