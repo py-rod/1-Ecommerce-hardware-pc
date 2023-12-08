@@ -20,7 +20,7 @@ class Carousel(models.Model):
                 "Only three images can be selected. If you need to change select image, you need to delete one select image and select the new image ")
     title = models.CharField(max_length=100, default="", blank=False)
     slogan = models.CharField(max_length=300, blank=False, unique=False)
-    image = models.ForeignKey(
+    series = models.ForeignKey(
         Product, default="", blank=False, on_delete=models.CASCADE, help_text="Select a product to post in the carousel", validators=[validate_image_count])
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)

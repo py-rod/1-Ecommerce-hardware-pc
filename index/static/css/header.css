@@ -12,10 +12,17 @@
     top: 0;
     left: 0;
     z-index: 100000000000;
-    border-bottom: 1px solid gray;
     user-select: none;
+    background-color: white;
+    transition: border-color 0.3s ease;
+
 }
 
+
+#header .scrolled {
+    box-shadow: 0 0 5px gray;
+    border: none;
+}
 
 .header-nav {
     max-width: 1900px;
@@ -24,6 +31,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
+    margin: 0 auto;
 }
 
 
@@ -40,7 +48,7 @@
 
 .content-logo>span {
     font-size: 2.4rem;
-    color: #FD4B6B;
+    color: var(--primary-color3);
 }
 
 
@@ -52,7 +60,7 @@
     align-items: center;
     height: 40px;
     border-radius: 4px;
-    border: 1px solid var(--primary-color1);
+    border: 1px solid var(--primary-color3);
 }
 
 /* DROPDONW CATEGORIES */
@@ -76,8 +84,9 @@
     align-items: center;
     border: none;
     height: 100%;
+    padding: 0 15px;
     color: white;
-    background-color: #FD4B6B;
+    background-color: var(--primary-color3);
     border-radius: 4px 0 0 4px;
 }
 
@@ -94,7 +103,7 @@
     margin: 0 auto;
     z-index: 1;
     color: black;
-    top: 79px;
+    top: 80px;
     box-shadow: 0 5px 5px -5px gray;
 }
 
@@ -128,8 +137,8 @@
     height: 40px;
     display: flex;
     align-items: center;
-    border-top: 1px solid var(--primary-color1);
-    border-bottom: 1px solid var(--primary-color1);
+    border-top: 1px solid var(--primary-color3);
+    border-bottom: 1px solid var(--primary-color3);
     border-radius: 0 4px 4px 0;
 }
 

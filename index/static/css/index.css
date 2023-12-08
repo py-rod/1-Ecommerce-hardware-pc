@@ -1,0 +1,141 @@
+/* SECTION THE CAROUSEL  */
+
+.section-1 {
+    background-color: #E3EDF6;
+    user-select: none;
+}
+
+/* BUTTONS AT THE BOTTOM */
+
+.carousel-indicators>button {
+    background-color: var(--primary-color3) !important;
+}
+
+/* CONTAINER TEXT AND IMAGE  */
+.content-slogan-image {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 30px;
+}
+
+
+.content-slogan-image>div {
+    max-width: 797px;
+}
+
+
+
+/* IMAGEN THE CAROUSEL */
+.image-carousel {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* SLOGAN TEXT */
+.image-slogan {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--primary-color2);
+    text-wrap: pretty;
+}
+
+/* PRICE */
+.image-price {
+    font-weight: 900;
+    color: var(--primary-color2);
+}
+
+.text-offer {
+    font-family: var(--font-handlee);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary-color2);
+}
+
+.text-offer>span {
+    color: var(--primary-color1);
+    font-weight: 900;
+    font-size: 1.6rem;
+}
+
+
+/* URL THE PRODUCT */
+.url-product {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--primary-color2);
+    background-color: white;
+    padding: 13px 25px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: .2s;
+    fill: var(--primary-color2);
+    box-shadow: -1px 1px 2px rgb(211, 211, 211);
+}
+
+
+
+.url-product:hover {
+    fill: white;
+    background-color: var(--primary-color3);
+    color: white;
+}
+
+
+
+
+
+/* SECTION 2 */
+
+
+.section-2 {
+    margin-top: 200px;
+    padding: 0 30px;
+}
+
+.section-2>ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+.section-2>ul>li {
+    display: flex;
+    padding: 25px 35px;
+    gap: 20px;
+    height: fit-content;
+    background-color: #F6F7F9;
+    text-wrap: pretty;
+    border-radius: 4px;
+}
+
+.section-2>ul>li>img {
+    align-self: flex-start;
+}
+
+
+.section-2>ul>li>div>p:nth-child(1) {
+    font-size: 14px;
+    color: var(--primary-color2);
+    font-weight: 600;
+}
+
+.section-2>ul>li>div>p:nth-child(2) {
+    font-size: 13px;
+    color: rgb(65, 65, 65);
+}
+
+
+/* SECTION 3 */
+.section-3 {
+    margin-top: 200px;
+}

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var navbar = document.querySelector("#header .navbar");
+    var navbar = document.querySelector("#header .header-nav");
 
     window.addEventListener("scroll", function () {
         if (window.scrollY > 0) {

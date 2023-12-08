@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
 {% block head %}
 {% endblock %}
 
@@ -11,7 +12,97 @@
 
 <main>
     <section class="section-1">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                {% for first_image, image_carousel in images_carousel %}
+                <div class="carousel-item {% if first_image == 0 %}active{% endif %}" data-bs-interval="8000">
+                    <div class="content-slogan-image">
+                        <div>
+                            <span>Por solo <span class="image-price">${{image_carousel.series.price}}</span></span>
+                            <p class="image-slogan">{{image_carousel.slogan}}</p>
+                            {% if image_carousel.series.offer_price > 0 %}
+                            <p class="text-offer">oferta exclusiva <span>{{image_carousel.series.percentage}}</span> de
+                                esta semana</p>
+                            {% endif %}
+                            <a href="#" class="url-product">
+                                Comprar ahora
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path
+                                        d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                        <img src="{{image_carousel.series.image.url}}" alt="{{image_carousel.series.product_name}}"
+                            class="image-carousel">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 
+
+    <section class="section-2">
+        <ul>
+            <li>
+                <img src="{% static 'icons/truck.svg' %}" alt="truck">
+                <div>
+                    <p>Entrega rapida y segura</p>
+                    <p>Cuentanos sobre tu servicio</p>
+                </div>
+            </li>
+            <li>
+                <img src="{% static 'icons/money.svg' %}" alt="money">
+                <div>
+                    <p>
+                        Garantía de devolución del dinero
+                    </p>
+                    <p>En 10 dias</p>
+                </div>
+            </li>
+            <li>
+                <img src="{% static 'icons/return.svg' %}" alt="return">
+                <div>
+                    <p>
+                        Política de devolución de 24 horas
+                    </p>
+                    <p>
+                        No hay preguntas.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="{% static 'icons/support.svg' %}" alt="support">
+                <div>
+                    <p>
+                        Soporte de calidad profesional
+                    </p>
+                    <p>
+                        24/7 Soporte en vivo
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="section-3">
+        <div>
+            <h3>Recent Products</h3>
+            <a href="#">Go recent</a>
+        </div>
+        <ul class="content-recent-products">
+
+        </ul>
     </section>
 </main>
 {% endblock %}
