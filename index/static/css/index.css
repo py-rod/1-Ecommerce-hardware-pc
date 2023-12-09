@@ -136,6 +136,10 @@
 }
 
 
+
+
+
+
 /* SECTION 3 */
 .section-3 {
     margin-top: 200px;
@@ -205,10 +209,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* box-shadow: 0 0 3px rgb(216, 216, 216); */
     border-radius: 5px;
     height: fit-content;
     border: 1px solid var(--border-color1);
+    background-color: white;
 }
 
 
@@ -323,8 +327,65 @@
 }
 
 
+/* SECTION 4 */
+.section-4 {
+    margin-top: 200px;
+    padding: 80px 30px;
+    background-color: #ECF2F7;
+}
 
 
+.content-title-section-4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.content-title-section-4>h3 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: var(--primary-color2);
+    position: relative;
+    z-index: 100;
+}
+
+.content-title-section-4>h3::before {
+    content: "";
+    width: 100%;
+    display: block;
+    height: 1.5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.content-title-section-4>a {
+    display: flex;
+    align-items: center;
+    fill: var(--primary-color2);
+    color: var(--primary-color2);
+    border: 1px solid var(--primary-color3);
+    padding: 8px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: ease .2s;
+}
+
+
+.content-title-section-4>a:hover {
+    background-color: var(--primary-color3);
+    color: white;
+    fill: white;
+}
+
+/* LI DISCOUNT PRODUCT */
+.discount-product {
+    border: none;
+}
 
 
 @media (max-width:1075px) {
