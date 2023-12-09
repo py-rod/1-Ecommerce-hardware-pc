@@ -49,7 +49,8 @@ PROJECT_APPS = [
     'index',
     'users',
     'categories',
-    'products'
+    'products',
+    'cart'
 ]
 
 
