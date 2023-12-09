@@ -96,12 +96,93 @@
 
 
     <section class="section-3">
-        <div>
-            <h3>Recent Products</h3>
-            <a href="#">Go recent</a>
+        <div class="content-title-section-3">
+            <h3>Productos Recientes</h3>
+            <a href="#">
+                Ver recientes
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24">
+                    <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z">
+                    </path>
+                </svg>
+            </a>
         </div>
-        <ul class="content-recent-products">
+        <ul class="ul-products">
+            {% for recent_product in recent_products|slice:"14" %}
+            {% if recent_product.offer_price > 0 %}
+            <li class="li-content-product">
+                {% if user.is_superuser %}
+                <div class="content-product-image">
+                    <div class="dropdown drop-options-products">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'icons/dot-vertical.svg' %}" alt="dot-menu">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                    </div>
+                    <a href="#">
+                        <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
+                        <span class="percentage-product">{{recent_product.percentage}} OFF</span>
+                    </a>
+                </div>
+                {% else %}
+                <div class="content-product-image">
+                    <a href="#">
+                        <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
+                        <span class="percentage-product">{{recent_product.percentage}} OFF</span>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="content-name-price-offer">
+                    <a href="#" title="{{recent_product.product_name}}" class="name-product">
+                        {{recent_product.product_name}}
+                    </a>
+                    <div class="content-product-price">
+                        <p class="p-offer-price">$ {{recent_product.old_price}}</p>
+                        <p class="official-price">$ {{recent_product.price}}</p>
+                    </div>
 
+                    <a href="#" class="add-to-cart">Add to cart</a>
+                </div>
+
+            </li>
+            {% else %}
+
+            <li class="li-content-product">
+                {% if user.is_superuser %}
+                <div class="content-product-image">
+                    <div class="dropdown drop-options-products">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'icons/dot-vertical.svg' %}" alt="dot-menu">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                    </div>
+                    <a href="#">
+                        <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
+                    </a>
+                </div>
+                {% else %}
+                <div class="content-product-image">
+                    <a href="#">
+                        <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
+                    </a>
+                </div>
+                {% endif %}
+                <div class="content-name-price-offer">
+                    <a href="#" title="{{recent_product.product_name}}" class="name-product">
+                        {{recent_product.product_name}}
+                    </a>
+                    <div class="content-product-price">
+                        <p class="official-price">$ {{recent_product.price}}</p>
+                    </div>
+
+                    <a href="#" class="add-to-cart">Add to cart</a>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
         </ul>
     </section>
 </main>

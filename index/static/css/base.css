@@ -15,10 +15,11 @@ input:-webkit-autofill:focus {
     --font-roboto: 'Roboto', sans-serif;
     --font-handlee: 'Handlee', cursive;
     --color-logo: #010F1C;
-    --primary-color1: #FD4B6B;
+    --primary-color1: #FF497C;
     --primary-color2: #021D35;
     --primary-color3: #0989FF;
-    --border-color1: rgb(224, 224, 224);
+    --border-color1: rgb(235, 235, 235);
+    --border-color2: #F0F2F4;
 }
 
 
