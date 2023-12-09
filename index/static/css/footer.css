@@ -5,6 +5,7 @@ footer {
     margin-top: 150px;
     background-color: #F4F7F9;
     padding: 0 30px;
+    user-select: none;
 }
 
 .content-footer-elements {

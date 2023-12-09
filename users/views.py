@@ -92,7 +92,8 @@ def signin(request):
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, f"Hi! Welcome {user.get_full_name}")
+                messages.success(
+                    request, f"Hi! Welcome {user.get_full_name()}")
                 return redirect("home")
         else:
             for error in list(form.errors.values()).pop():
