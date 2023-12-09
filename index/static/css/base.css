@@ -18,8 +18,8 @@ input:-webkit-autofill:focus {
     --primary-color1: #FF497C;
     --primary-color2: #021D35;
     --primary-color3: #0989FF;
-    --border-color1: rgb(235, 235, 235);
-    --border-color2: #F0F2F4;
+    --border-color: rgb(224, 224, 224);
+    --border-color1: rgb(224, 224, 224);
 }
 
 

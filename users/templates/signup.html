@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Hadware sv | Sign Up{% endblock %}
+
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+
+<main>
+    <section class="section-1-signup">
+        <h3>Sign up to create your account</h3>
+        <form action="{% url 'signup' %}" method="POST" class="form-signup">
+            {% csrf_token %}
+            <div class="content-full-name">
+                <input type="text" name="first_name" id="id_first_name" placeholder="First name" autofocus required
+                    maxlength="100">
+                <input type="text" name="last_name" id="id_last_name" placeholder="Last name" required maxlength="100">
+            </div>
+
+            <div class="content-user-email">
+                <input type="text" id="id_username" name="username" required maxlength="200" placeholder="Username">
+                <input type="email" name="email" id="id_email" required maxlength="254" placeholder="Email">
+            </div>
+
+            <div class="content-password">
+                <input type="password" name="password1" id="id_password1" autocomplete="new-password"
+                    placeholder="Password">
+                <input type="password" name="password2" id="id_password2" autocomplete="new-password"
+                    placeholder="Confirm password">
+            </div>
+
+            <div id="div_id_recive_notify" class="recive_notify">
+                <input type="checkbox" name="recive_notify" id="id_recive_notify">
+                <label for="id_recive_notify">
+                    Receive notifications about promotions?
+                </label>
+            </div>
+
+            <button type="submit" class="button-create-account">Create account</button>
+        </form>
+        <p class="go-signin mt-4">Do you have any account? <a href="{% url 'signin' %}">Sign in</a></p>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,122 @@
+footer {
+    max-width: 1900px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 150px;
+    background-color: #F4F7F9;
+    padding: 0 30px;
+}
+
+.content-footer-elements {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 90px 0px 50px;
+}
+
+.content-footer-elements>div:nth-child(1)>p {
+    margin-top: 15px;
+    color: var(--primary-color2);
+    font-size: 18px;
+    line-height: 1.44;
+}
+
+.content-social-media {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.content-social-media>a {
+    padding: 5px 8px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 8px;
+    fill: gray;
+    box-shadow: 0 3px 4px -5px gray;
+    transition: ease .2s;
+}
+
+.content-social-media>a:hover {
+    background-color: var(--primary-color3);
+    fill: white;
+}
+
+
+.footer-content-information>h5,
+.footer-content-fast-links>h5,
+.footer-content-talk>h5 {
+    color: var(--primary-color2);
+    font-weight: 600;
+}
+
+
+.footer-content-information>a,
+.footer-content-fast-links>a,
+.footer-content-talk>a {
+    text-decoration: none;
+    font-size: 14px;
+    color: gray;
+    margin-top: 7px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+
+.footer-content-information>a:hover,
+.footer-content-fast-links>a:hover,
+.footer-content-talk>a:hover {
+    color: var(--primary-color3);
+}
+
+
+.footer-content-talk>p {
+    font-size: 14px;
+}
+
+.footer-content-talk>a:nth-child(3) {
+    font-size: 20px;
+    color: var(--primary-color2);
+    font-weight: 600;
+}
+
+.footer-content-talk>a:nth-child(3):hover {
+    color: var(--primary-color3);
+}
+
+
+.footer-content-talk>a:nth-child(4) {
+    display: flex;
+    align-items: center;
+}
+
+
+.footer-content-talk>a:nth-child(5) {
+    display: flex;
+}
+
+
+
+.footer-content-talk>a:nth-child(5)>img {
+    align-self: flex-start;
+}
+
+
+footer>div:nth-child(2) {
+    border-top: 1px solid #E4E8EA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+
+footer>div:nth-child(2)>p {
+    color: gray;
+    font-size: 14px;
+}
+
+footer>div:nth-child(2)>img {
+    display: block;
+    width: 180px;
+}

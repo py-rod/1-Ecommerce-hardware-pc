@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/signin.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Hadware sv | Sign In{% endblock %}
+
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+
+<main>
+    <section class="section-1-singin">
+        <h3>Sign in to your account</h3>
+        <form action="{% url 'signin' %}" method="POST" class="form-login-user">
+            {% csrf_token %}
+            <input type="email" name="username" id="id_username" required autocomplete="email" autofocus maxlength="254"
+                placeholder="Enter email">
+            <input type="password" name="password" id="id_password" required placeholder="Enter password">
+            <button type="submit" class="button-login-account">Login</button>
+        </form>
+        <a href="#" class="forgot-password-link"><span class="text-dark">or </span>Forgot your
+            password?</a>
+        <p class="go-signin mt-3">No account yet? <a href="{% url 'signup' %}">Sign up</a></p>
+    </section>
+</main>
+{% endblock %}

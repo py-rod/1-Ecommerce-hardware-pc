@@ -330,6 +330,5 @@
 @media (max-width:1075px) {
     .section-2>ul {
         grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr));
-
     }
 }

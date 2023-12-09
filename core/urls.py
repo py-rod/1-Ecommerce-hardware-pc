@@ -24,6 +24,7 @@ urlpatterns = [
 
     path('tinymce/', include('tinymce.urls')),
     path("", include("index.urls")),
+    path("account/", include("users.urls")),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

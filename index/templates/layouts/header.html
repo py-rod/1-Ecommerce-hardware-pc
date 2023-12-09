@@ -116,7 +116,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'logout' %}">
                             Logout
                         </a>
                     </li>
@@ -138,7 +138,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'logout' %}">
                             Logout
                         </a>
                     </li>
@@ -148,7 +148,7 @@
 
             {% endif %}
             {% else %}
-            <a href="#" class="content-signup">
+            <a href="{% url 'signup' %}" class="content-signup">
                 <img src="{% static 'icons/user-not-login.svg' %}" alt="user-not-login">
                 <div>
                     <p>
