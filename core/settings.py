@@ -50,7 +50,8 @@ PROJECT_APPS = [
     'users',
     'categories',
     'products',
-    'cart'
+    'cart',
+    'orders',
 ]
 
 
