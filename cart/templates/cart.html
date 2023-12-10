@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block head %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}" type="text/css">
 {% endblock %}
 {% block title %}Hardware sv | Cart{% endblock %}
 
@@ -8,7 +9,80 @@
 {% block content %}
 {% include 'layouts/header.html' %}
 {% include 'layouts/messages.html' %}
-<main>
+{% if cart_items %}
+<main class="content-cart-products">
+    <section class="section-1-content-products">
+        <table class="table table-borderless">
+            <thead class="table-head border text-uppercase">
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                {% for cart_item in cart_items %}
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="{{cart_item.product.image.url}}" alt="{{cart_item.product.product_name}}"
+                                class="content-image-product">
+                        </figure>
+                        <figcaption>
+                            <a href="#" class="text-dark">{{cart_item.product.product_name}}</a>
+                        </figcaption>
+                    </td>
+                    <td>
+                        <a href="{% url 'remove_cart' cart_item.product.id cart_item.id %}" class="btn btn-light"
+                            type="button" id="button-plus">-</i>
+                        </a>
+                        <input type="text" value="{{cart_item.quantity}}" class="content-quantity-value" readonly>
+                        <a href="{% url 'add_cart' cart_item.product.id %}" class="btn btn-light" type="button"
+                            id="button-plus">+</a>
+                    </td>
+                    <td>
+                        <div class="price-wrap">
+                            <p class="price">$ {{ cart_item.sub_total }}</p>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}"
+                            onclick="return confirm('Are you sure you want to delete this item?')"
+                            class="btn btn-danger">Remover</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
+        <ul class="content-payment">
+            <li>
+                <h5 class="fw-bolder">Total price:</h5>
+                <p>${{total}}</p>
+            </li>
+            <li>
+                <h5 class="fw-bolder">Tax:</h5>
+                <p>${{tax}}</p>
+            </li>
+            <li>
+                <h5 class="fw-bolder">Grand total:</h5>
+                <p>${{grand_total}}</p>
+            </li>
+            <li class="text-center">
+                <img src="{% static 'images/payments.png' %}" alt="Payment method images" height="26">
+            </li>
+            <li>
+                <a href="{% url 'checkout' %}" class="d-block btn btn-primary">Checkout</a>
+                <a href="{% url 'home' %}" class="d-block btn btn-light mt-3">Continue Shooping</a>
+            </li>
+        </ul>
+    </section>
 </main>
+{% else %}
+<main class="content-no-products-cart">
+    <section class="section-1-no-products">
+        <img src="{% static 'images/no-product.webp' %}" alt="No products">
+    </section>
+</main>
+{% endif %}
 {% endblock %}

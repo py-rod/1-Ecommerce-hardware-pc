@@ -17,7 +17,6 @@ def index(request):
 
     discount_products = Product.objects.filter(
         series__is_active=True, is_active=True, stock__gt=0, offer_price__gt=0)
-    print(discount_products)
 
     return render(request, "index.html", {
         "images_carousel": images_carousel,
