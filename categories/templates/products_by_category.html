@@ -1,0 +1,184 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/products_by_category.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Hardware sv | {{category_name}} {% endblock %}
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+
+{% if products %}
+<main>
+
+    <section class="section-content-products">
+
+        <div class="content-category">
+            <h3>Cuadricula de productos</h3>
+            <div>
+                <a href="{% url 'home' %}">Inicio</a>
+                <span>></span>
+                <span>{{category_name}}</span>
+            </div>
+        </div>
+
+        <!-- FILTER -->
+        <div class="content-form-filter-products">
+            <form method="get" action="{{product.get_url}}" class="form-filter-products">
+                <select name="order" id="order">
+                    <option value="default" {% if order_param == 'default' %}selected{% endif %}>Default</option>
+                    <option value="price_low_to_high" {% if order_param == 'price_low_to_high' %}selected{% endif %}>
+                        Precio de menor a mayor
+                    </option>
+                    <option value="price_high_to_low" {% if order_param == 'price_high_to_low' %}selected{% endif %}>
+                        Precio de mayor a menor
+                    </option>
+                    <option value="name_a_to_z" {% if order_param == 'name_a_to_z' %}selected{% endif %}>
+                        Nombre de la A a la Z
+                    </option>
+                    <option value="name_z_to_a" {% if order_param == 'name_z_to_a' %}selected{% endif %}>
+                        Nombre de la Z a la A
+                    </option>
+                </select>
+                <button type="submit">Apply</button>
+            </form>
+        </div>
+
+
+        <!-- UL PRODUCTS -->
+        <ul class="ul-products">
+            {% for product in products %}
+            {% if product.offer_price > 0 %}
+            <li class="li-content-product">
+                {% if user.is_superuser %}
+                <div class="content-product-image">
+                    <div class="dropdown drop-options-products">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'icons/dot-vertical.svg' %}" alt="dot-menu">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                    </div>
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                        <span class="percentage-product">{{product.percentage}} OFF</span>
+                    </a>
+                </div>
+                {% else %}
+                <div class="content-product-image">
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                        <span class="percentage-product">{{product.percentage}} OFF</span>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="content-name-price-offer">
+                    <a href="#" title="{{product.product_name}}" class="name-product">
+                        {{product.product_name}}
+                    </a>
+                    <div class="content-product-price">
+                        <p class="p-offer-price">$ {{product.old_price}}</p>
+                        <p class="official-price">$ {{product.price}}</p>
+                    </div>
+
+                    <a href="#" class="add-to-cart">Add to cart</a>
+                </div>
+
+            </li>
+            {% else %}
+
+            <li class="li-content-product">
+                {% if user.is_superuser %}
+                <div class="content-product-image">
+                    <div class="dropdown drop-options-products">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'icons/dot-vertical.svg' %}" alt="dot-menu">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                    </div>
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                    </a>
+                </div>
+                {% else %}
+                <div class="content-product-image">
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                    </a>
+                </div>
+                {% endif %}
+                <div class="content-name-price-offer">
+                    <a href="#" title="{{product.product_name}}" class="name-product">
+                        {{product.product_name}}
+                    </a>
+                    <div class="content-product-price">
+                        <p class="official-price">$ {{product.price}}</p>
+                    </div>
+
+                    <a href="#" class="add-to-cart">Add to cart</a>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+
+        <!-- PAGINATOR -->
+        <div class="content-paginator">
+            <nav aria-label="Page navigation example" class="mt-5">
+                {% if products.has_other_pages %}
+                <ul class="pagination">
+                    {% if products.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{products.previous_page_number}}&order={{ order_param }}">
+                            Previous
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Previous</a>
+                    </li>
+                    {% endif %}
+
+                    {% for i in products.paginator.page_range %}
+                    {% if products.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link" href="?page={{i}}&order={{order_param}}">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{i}}&order={{order_param}}">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if products.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{products.next_page_number}}&order={{ order_param }}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+</main>
+{% include 'layouts/footer.html' %}
+{% else %}
+<main class="main-no-products">
+    <section class="section-1-no-products">
+        <img src="{% static 'images/no-product.webp' %}" alt="No products">
+    </section>
+</main>
+{% endif %}
+
+{% endblock %}

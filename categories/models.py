@@ -16,7 +16,7 @@ class Categories(models.Model):
         return self.title
 
     def get_url(self):
-        return reverse("products_by_categories", args=[self.slug])
+        return reverse("products_by_category", args=[self.slug])
 
     class Meta:
         verbose_name_plural = "Categories"
