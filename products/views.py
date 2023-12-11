@@ -22,17 +22,18 @@ def product_detail(request, slug_category, slug_product):
         reviews = ReviewProduct.objects.filter(product=product)
 
         # Procesar el formulario de comentarios si es una solicitud POST
-        if request.method == 'POST':
-            form = ReviewForm(request.POST)
-            if form.is_valid():
-                new_comment = form.save(commit=False)
-                new_comment.product = product
-                new_comment.user = request.user  # Asumiendo que tienes autenticación de usuario
-                new_comment.save()
-                return redirect(request.path)
-        else:
-            form = ReviewForm()
-
+        if request.user.is_authenticated:
+            if request.method == 'POST':
+                form = ReviewForm(request.POST)
+                if form.is_valid():
+                    new_comment = form.save(commit=False)
+                    new_comment.product = product
+                    new_comment.user = request.user  # Asumiendo que tienes autenticación de usuario
+                    new_comment.save()
+                    messages.success(
+                        request, "Tu comentario ha sido publicado")
+                    return redirect(request.path)
+        form = ReviewForm()
     except Exception as e:
         raise e
 
@@ -53,7 +54,7 @@ def search(request):
         products = Product.objects.filter(
             Q(product_name__icontains=search_query), series__is_active=True, is_active=True, stock__gt=0).order_by("price")
 
-        paginator = Paginator(products, 1)
+        paginator = Paginator(products, 20)
         try:
             products_post = paginator.page(page)
         except PageNotAnInteger:

@@ -25,7 +25,19 @@
                 <h3>{{product.product_name}}</h3>
                 <div class="content-in-stock-star">
                     <span>en-existencias</span>
-                    <span>start (reseñas 2)</span>
+                    <span>
+                        <i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.averageReview < 2 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.averageReview < 3 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.averageReview < 4 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.averageReview < 5 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <span>{{product.countReview}} reviews</span>
+                    </span>
                 </div>
                 {% if product.offer_price > 0 %}
                 <div class="content-prices">
@@ -65,6 +77,89 @@
             {{product.description|safe}}
         </div>
     </section>
+
+    <section class="section-3-create">
+        <div>
+            <h3>Comentario</h3>
+            <form action="{% url 'product_detail' product.series.slug product.slug %}" method="POST">
+                {% csrf_token %}
+                <div class="rate">
+                    <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating0"
+                        title="0.5" class="half">1</label>
+                    <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating1"
+                        title="1.5" class="half">2</label>
+                    <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating4"
+                        title="2.5" class="half">3</label>
+                    <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating3"
+                        title="3.5" class="half">4</label>
+                    <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating5"
+                        title="4.5" class="half">5</label>
+                </div>
+                {{form.review}}
+                {% if user.is_authenticated %}
+                <button type="submit">Publicar</button>
+                {% else %}
+                <p>You need login or create account</p>
+                {% endif %}
+            </form>
+        </div>
+
+        <div>
+            <header class="section-heading">
+                <h3>Reseñas</h3>
+                <div class="rating-star">
+                    <span>
+                        <i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.averageReview < 2 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.averageReview < 3 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.averageReview < 4 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.averageReview < 5 %}-half-o {% endif %}"
+                            aria-hidden="true" style="color: #f1e644;"></i>
+                        <span>{{product.countReview}} reviews</span>
+                    </span>
+                </div>
+                {% for review in reviews %}
+                <article class="box mb-3 mt-4">
+                    <div class="icontext w-100">
+
+                        <div class="text">
+                            <span class="date text-muted float-md-right">{{review.modified}} </span>
+                            <div class="rating-star">
+                                <span>
+                                    <i class="fa fa-star{% if review.rating == 0.5 %}-half-o{% elif review.rating < 1 %}-o {% endif %}"
+                                        aria-hidden="true" style="color: #f1e644;"></i>
+                                    <i class="fa fa-star{% if review.rating == 1.5 %}-half-o{% elif review.rating < 2 %}-o {% endif %}"
+                                        aria-hidden="true" style="color: #f1e644;"></i>
+                                    <i class="fa fa-star{% if review.rating == 2.5 %}-half-o{% elif review.rating < 3 %}-o {% endif %}"
+                                        aria-hidden="true" style="color: #f1e644;"></i>
+                                    <i class="fa fa-star{% if review.rating == 3.5 %}-half-o{% elif review.rating < 4 %}-o {% endif %}"
+                                        aria-hidden="true" style="color: #f1e644;"></i>
+                                    <i class="fa fa-star{% if review.rating == 4.5 %}-half-o{% elif review.rating < 5 %}-o {% endif %}"
+                                        aria-hidden="true" style="color: #f1e644;"></i>
+                                </span>
+                            </div>
+                            <h6 class="mb-1">{{review.user.username}} </h6>
+
+                        </div>
+                    </div> <!-- icontext.// -->
+                    <div class="mt-3">
+                        <p>
+                            {{review.review}}
+                        </p>
+                    </div>
+                </article>
+                {% endfor %}
+            </header>
+        </div>
+    </section>
+
+
+
+
 </main>
 {% include 'layouts/footer.html' %}
 {% endblock %}

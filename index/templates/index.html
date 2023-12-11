@@ -138,6 +138,21 @@
                     <a href="{{recent_product.get_url}}" title="{{recent_product.product_name}}" class="name-product">
                         {{recent_product.product_name}}
                     </a>
+                    <div class="rating-star mt-3">
+                        <span>
+                            <i class="fa fa-star{% if recent_product.averageReview < 0.5 %}-o{% elif recent_product.averageReview >= 0.5 and recent_product.averageReview < 1 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 1.5 %}-o{% elif recent_product.averageReview >= 1.5 and recent_product.averageReview < 2 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 2.5 %}-o{% elif recent_product.averageReview >= 2.5 and recent_product.averageReview < 3 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 3.5 %}-o{% elif recent_product.averageReview >= 3.5 and recent_product.averageReview < 4 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 4.5 %}-o{% elif recent_product.averageReview >= 4.5 and recent_product.averageReview < 5 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <span>{{recent_product.countReview}} reviews</span>
+                        </span>
+                    </div>
                     <div class="content-product-price">
                         <p class="p-offer-price">$ {{recent_product.old_price}}</p>
                         <p class="official-price">$ {{recent_product.price}}</p>
@@ -175,6 +190,21 @@
                     <a href="{{recent_product.get_url}}" title="{{recent_product.product_name}}" class="name-product">
                         {{recent_product.product_name}}
                     </a>
+                    <div class="rating-star mt-3">
+                        <span>
+                            <i class="fa fa-star{% if recent_product.averageReview < 0.5 %}-o{% elif recent_product.averageReview >= 0.5 and recent_product.averageReview < 1 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 1.5 %}-o{% elif recent_product.averageReview >= 1.5 and recent_product.averageReview < 2 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 2.5 %}-o{% elif recent_product.averageReview >= 2.5 and recent_product.averageReview < 3 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 3.5 %}-o{% elif recent_product.averageReview >= 3.5 and recent_product.averageReview < 4 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if recent_product.averageReview < 4.5 %}-o{% elif recent_product.averageReview >= 4.5 and recent_product.averageReview < 5 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <span>{{recent_product.countReview}} reviews</span>
+                        </span>
+                    </div>
                     <div class="content-product-price">
                         <p class="official-price">$ {{recent_product.price}}</p>
                     </div>
@@ -231,6 +261,21 @@
                         class="name-product">
                         {{discount_product.product_name}}
                     </a>
+                    <div class="rating-star">
+                        <span>
+                            <i class="fa fa-star{% if discount_product.averageReview < 0.5 %}-o{% elif discount_product.averageReview >= 0.5 and discount_product.averageReview < 1 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if discount_product.averageReview < 1.5 %}-o{% elif discount_product.averageReview >= 1.5 and discount_product.averageReview < 2 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if discount_product.averageReview < 2.5 %}-o{% elif discount_product.averageReview >= 2.5 and discount_product.averageReview < 3 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if discount_product.averageReview < 3.5 %}-o{% elif discount_product.averageReview >= 3.5 and discount_product.averageReview < 4 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <i class="fa fa-star{% if discount_product.averageReview < 4.5 %}-o{% elif discount_product.averageReview >= 4.5 and discount_product.averageReview < 5 %}-half-o {% endif %}"
+                                aria-hidden="true" style="color: #f1e644;"></i>
+                            <span>{{discount_product.countReview}} reviews</span>
+                        </span>
+                    </div>
                     <div class="content-product-price">
                         <p class="p-offer-price">$ {{discount_product.old_price}}</p>
                         <p class="official-price">$ {{discount_product.price}}</p>

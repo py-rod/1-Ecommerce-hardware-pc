@@ -155,3 +155,55 @@
     border-top: 1px solid var(--border-color);
     padding: 100px 30px 0;
 }
+
+
+/* SECTION 3 CREATE */
+
+
+.section-3-create {
+    margin-top: 60px;
+    padding: 60px 30px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.section-3-create>div:nth-child(1) {
+    width: fit-content;
+    padding: 30px;
+    height: fit-content;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.write-review {
+    resize: vertical;
+    width: 100%;
+    min-height: 70px;
+    padding: 10px;
+    max-height: 150px;
+    margin-top: 30px;
+    border-radius: 0.3125rem;
+    border: 1px solid rgb(187, 187, 187);
+    background-color: #fff;
+}
+
+
+.write-review:focus {
+    border: none;
+    outline: rgb(187, 187, 187) solid 1px;
+    background-color: inherit;
+}
+
+.section-3-create>div:nth-child(1)>form>button {
+    display: block;
+    width: fit-content;
+    padding: 7px 30px;
+    color: white;
+    background-color: var(--primary-color3);
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
