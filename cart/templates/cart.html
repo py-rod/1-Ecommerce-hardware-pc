@@ -30,7 +30,10 @@
                         </figure>
                         <figcaption>
                             <a href="{{cart_item.product.get_url}}"
-                                class="text-dark">{{cart_item.product.product_name}}</a>
+                                class="text-dark product-name-cart">{{cart_item.product.product_name}}</a>
+                            <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}"
+                                onclick="return confirm('Are you sure you want to delete this item?')"
+                                class="btn btn-danger remove-product-movil">Remover</a>
                         </figcaption>
                     </td>
                     <td>
@@ -46,7 +49,7 @@
                             <p class="price">$ {{ cart_item.sub_total }}</p>
                         </div>
                     </td>
-                    <td class="text-right">
+                    <td class="text-right td-remove-desk">
                         <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}"
                             onclick="return confirm('Are you sure you want to delete this item?')"
                             class="btn btn-danger">Remover</a>

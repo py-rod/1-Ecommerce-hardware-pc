@@ -121,3 +121,15 @@ footer>div:nth-child(2)>img {
     display: block;
     width: 180px;
 }
+
+
+@media (max-width:937px) {
+    .content-footer-elements {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 90px 0px 50px;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+}

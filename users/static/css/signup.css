@@ -1,7 +1,8 @@
-main {
+.main-signup {
     display: flex;
     align-items: center;
     border-top: 1px solid var(--border-color);
+    padding: 0 30px;
 }
 
 
@@ -85,4 +86,27 @@ main {
     color: var(--primary-color3);
     font-weight: 600;
     cursor: pointer;
+}
+
+
+@media (max-width:650px) {
+
+
+    .main-signup {
+        padding: 60px 10px;
+    }
+
+
+    .content-full-name,
+    .content-user-email,
+    .content-password {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+
+    .button-create-account {
+        width: 100%;
+    }
+
 }

@@ -27,7 +27,8 @@
                 <div class="carousel-item {% if first_image == 0 %}active{% endif %}" data-bs-interval="8000">
                     <div class="content-slogan-image">
                         <div>
-                            <span>Por solo <span class="image-price">${{image_carousel.series.price}}</span></span>
+                            <span class="span-image-price">Por solo <span
+                                    class="image-price">${{image_carousel.series.price}}</span></span>
                             <p class="image-slogan">{{image_carousel.slogan}}</p>
                             {% if image_carousel.series.offer_price > 0 %}
                             <p class="text-offer">oferta exclusiva <span>{{image_carousel.series.percentage}}</span> de

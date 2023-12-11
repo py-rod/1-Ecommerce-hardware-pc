@@ -48,3 +48,29 @@
 
     text-decoration: none;
 }
+
+
+@media (max-width:904px) {
+
+    .section-1-payment {
+        flex-direction: column;
+    }
+
+    .content-information {
+        width: 100%;
+    }
+
+    .content-payment {
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+}
+
+
+@media (max-width:624px) {
+    .content-payment {
+        width: 100%;
+    }
+}

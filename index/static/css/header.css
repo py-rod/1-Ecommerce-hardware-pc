@@ -249,3 +249,123 @@
     width: 55px;
     height: 55px;
 }
+
+@media (max-width:1096px) {
+
+    /* SEARCH DESK */
+    .content-search-bar {
+        display: none;
+    }
+
+    /* SIGN UP OR SIGN IN USER */
+    .content-signup {
+        display: none;
+    }
+
+    .dropdown-profile-desk {
+        display: none;
+    }
+
+
+    /* BUTTON MENU */
+    .content-menu-movil {
+        display: block;
+        width: fit-content;
+    }
+
+    .content-menu-movil>button {
+        border: none;
+        background-color: inherit;
+        padding: 0;
+
+    }
+
+    /* SEARCH MOVIL */
+
+
+
+    .form-search-movil {
+        background-color: white;
+        border-radius: 4px;
+        display: flex;
+        padding: 0 10px;
+        flex-direction: row-reverse;
+        border: 1px solid var(--primary-color3);
+    }
+
+    .form-search-movil>input {
+        width: 100%;
+        background-color: #fff;
+        padding: 10px 10px;
+        line-height: 1.25rem;
+        border-radius: 0.3125rem;
+        border: none;
+    }
+
+    .form-search-movil>input:focus {
+        outline: none;
+        background-color: inherit;
+    }
+
+    .form-search-movil>button {
+        background-color: inherit;
+        border: none;
+        width: fit-content;
+        border-radius: 4px 0 0 4px;
+    }
+
+
+
+    /* SIGN UP / SIGN IN */
+    .signup-signin-movil {
+        text-decoration: none;
+        color: white;
+        background-color: var(--primary-color3);
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .content-user-signup>h3 {
+        color: var(--primary-color3);
+    }
+
+    /* IF USER IS AUTHENTICATED */
+    .content-user-signup>div>a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        background-color: var(--primary-color3);
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .content-user-signup>div>a:hover {
+        background-color: rgb(0, 97, 201);
+        color: white;
+    }
+
+    .content-user-signup>div>a:not(:first-child) {
+        border-top: 1px solid rgb(202, 202, 202);
+    }
+
+    /* CONTENT CATEGORIES MOVIL */
+    .content-categories-movil>div>a {
+        color: #3251ef;
+        text-decoration: none;
+        display: block;
+        padding: 15px 0;
+        background-color: white;
+        text-align: center;
+    }
+
+    .content-categories-movil>div>a {
+        background-color: var(--primary-color3);
+        color: white;
+    }
+
+    .content-categories-movil>div>a:not(:first-child) {
+        border-top: 1px solid white;
+
+    }
+}

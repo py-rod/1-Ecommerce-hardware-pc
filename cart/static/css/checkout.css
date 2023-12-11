@@ -65,3 +65,41 @@
     height: 150px;
     display: block;
 }
+
+
+@media (max-width:980px) {
+    .section-1-checkout {
+        flex-direction: column;
+    }
+
+
+    /* LIST PRODUCTS */
+    .content-product-list {
+        width: 100%;
+    }
+
+}
+
+
+
+
+@media (max-width:630px) {
+
+    .section-1-checkout {
+        padding: 60px 10px;
+    }
+
+
+    .content-direction>form>div {
+
+        flex-direction: column;
+        gap: 0;
+    }
+
+
+    .content-direction>form>button {
+        width: 100%;
+    }
+
+
+}
