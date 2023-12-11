@@ -123,14 +123,14 @@
                     </div>
                     <a href="{{recent_product.get_url}}">
                         <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
-                        <span class="percentage-product">{{recent_product.percentage}} OFF</span>
+                        <span class="percentage-product">{{recent_product.percentage}} OFERTA</span>
                     </a>
                 </div>
                 {% else %}
                 <div class="content-product-image">
                     <a href="{{recent_product.get_url}}">
                         <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
-                        <span class="percentage-product">{{recent_product.percentage}} OFF</span>
+                        <span class="percentage-product">{{recent_product.percentage}} OFERTA</span>
                     </a>
                 </div>
                 {% endif %}
@@ -143,7 +143,7 @@
                         <p class="official-price">$ {{recent_product.price}}</p>
                     </div>
 
-                    <a href="{% url 'add_cart' recent_product.id %}" class="add-to-cart">Add to cart</a>
+                    <a href="{% url 'add_cart' recent_product.id %}" class="add-to-cart">Agregar al carrito</a>
                 </div>
 
             </li>
@@ -179,7 +179,7 @@
                         <p class="official-price">$ {{recent_product.price}}</p>
                     </div>
 
-                    <a href="{% url 'add_cart' recent_product.id %}" class="add-to-cart">Add to cart</a>
+                    <a href="{% url 'add_cart' recent_product.id %}" class="add-to-cart">Agregar al carrito</a>
                 </div>
             </li>
             {% endif %}
@@ -215,14 +215,14 @@
                     </div>
                     <a href="{{discount_product.get_url}}">
                         <img src="{{discount_product.image.url}}" alt="{{discount_product.product_name}}">
-                        <span class="percentage-product">{{discount_product.percentage}} OFF</span>
+                        <span class="percentage-product">{{discount_product.percentage}} OFERTA</span>
                     </a>
                 </div>
                 {% else %}
                 <div class="content-product-image">
                     <a href="{{discount_product.get_url}}">
                         <img src="{{discount_product.image.url}}" alt="{{discount_product.product_name}}">
-                        <span class="percentage-product">{{discount_product.percentage}} OFF</span>
+                        <span class="percentage-product">{{discount_product.percentage}} OFERTA</span>
                     </a>
                 </div>
                 {% endif %}
@@ -236,7 +236,7 @@
                         <p class="official-price">$ {{discount_product.price}}</p>
                     </div>
 
-                    <a href="{{discount_product.get_url}}" class="add-to-cart">Add to cart</a>
+                    <a href="{{discount_product.get_url}}" class="add-to-cart">Agregar al carrito</a>
                 </div>
 
             </li>

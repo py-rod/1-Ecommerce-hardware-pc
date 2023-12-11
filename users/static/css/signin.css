@@ -1,12 +1,9 @@
 main {
     display: flex;
     align-items: center;
+    border-top: 1px solid var(--border-color);
 }
 
-
-.header-nav {
-    box-shadow: 0 5px 5px -5px gray;
-}
 
 
 
@@ -62,7 +59,7 @@ main {
 
 .forgot-password-link {
     text-decoration: none;
-    color: var(--primary-color2);
+    color: var(--primary-color3);
     display: block;
     margin-top: 20px;
 }

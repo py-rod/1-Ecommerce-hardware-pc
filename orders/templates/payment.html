@@ -13,31 +13,31 @@
 
     <section class="section-1-payment">
         <div class="content-information">
-            <h2 class="fw-bold">Review your order and make payment</h2>
+            <h2 class="fw-bold">Revise su pedido y realice el pago</h2>
 
             <div class="personal-data mt-4">
-                <h4>Billing Address</h4>
+                <h4>Direccion de envio</h4>
                 <div>
                     <p class="fw-bold text-body-secondary">
-                        Full name: <span class="text-dark">{{order.full_name}}</span>
+                        Nombre completo: <span class="text-dark">{{order.full_name}}</span>
                     </p>
                     <p class="fw-bold text-body-secondary">
-                        Number DUI: <span class="text-dark">{{order.number_dui}}</span>
+                        Numero de DUI: <span class="text-dark">{{order.number_dui}}</span>
                     </p>
                     <p class="fw-bold text-body-secondary">
-                        Phone number: <span class="text-dark">{{order.phone_number}}</span>
+                        Numero de telefono: <span class="text-dark">{{order.phone_number}}</span>
                     </p>
                     <p class="fw-bold text-body-secondary">
-                        Departament: <span class="text-dark">{{order.departament}}</span>
+                        Departamento: <span class="text-dark">{{order.departament}}</span>
                     </p>
                     <p class="fw-bold text-body-secondary">
-                        City: <span class="text-dark">{{order.city}}</span>
+                        Ciudad: <span class="text-dark">{{order.city}}</span>
                     </p>
                     <p class="fw-bold text-body-secondary">
-                        Address: <span class="text-dark">{{order.full_address}}</span>
+                        Direccion: <span class="text-dark">{{order.full_address}}</span>
                     </p>
                     <p class="fw-bold text-body-secondary">
-                        Payment method: <span class="text-dark">PayPal</span>
+                        Metodo de pago: <span class="text-dark">PayPal</span>
                     </p>
 
                 </div>
@@ -47,15 +47,15 @@
 
         <ul class="content-payment">
             <li>
-                <h5 class="fw-bolder">Total price:</h5>
+                <h5 class="fw-bolder">Precio total:</h5>
                 <p>${{total}}</p>
             </li>
             <li>
-                <h5 class="fw-bolder">Tax:</h5>
+                <h5 class="fw-bolder">Impuestos:</h5>
                 <p>${{tax}}</p>
             </li>
             <li>
-                <h5 class="fw-bolder">Grand total:</h5>
+                <h5 class="fw-bolder">Total general:</h5>
                 <p>${{grand_total}}</p>
             </li>
             <li class="text-center">
@@ -148,4 +148,6 @@
 
 
 </main>
+
+{% include 'layouts/footer.html' %}
 {% endblock %}

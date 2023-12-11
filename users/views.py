@@ -143,7 +143,7 @@ def close_session(request):
 
 
 @user_not_authenticated
-def forogot_password(request):
+def forgot_password(request):
     if request.method == "POST":
         form = PasswordResetForm(request.POST)
         if form.is_valid():
@@ -205,6 +205,8 @@ def password_reset_confirm(request):
             for error in list(form.errors.values()).pop():
                 messages.error(request, error)
     else:
+        uid = request.session.get("uid")
+        user = get_user_model().objects.get(id=uid)
         form = SetPasswordForm(user)
     return render(request, "forgot_password_reset_form.html", {
         "form": form,

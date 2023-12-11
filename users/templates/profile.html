@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Hardware sv | Profile{% endblock %}
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+<main>
+    {% if user.id == form.instance.id %}
+    <section class="section-1-form-profile">
+        <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data" class="form-profile">
+            {% csrf_token %}
+            <div class="content-image-profile">
+                <input id="id_image" type="file" name="image" hidden />
+                <label for="id_image">
+                    <img class="image-profile" src="{{ form.instance.image.url }}" title="Upload new image">
+                </label>
+                <div class="content-name-description">
+                    <p class="email-view-profile">{{form.instance.get_full_name}}</p>
+                    <p>{{form.instance.description}}</p>
+                </div>
+            </div>
+
+            <div class="content-options-inputs">
+                <div class="content-inputs">
+                    <div>
+                        {{form.first_name}}
+                        {{form.last_name}}
+                    </div>
+                    <div>
+                        {{form.username}}
+                        {{form.email}}
+                    </div>
+                    <div>
+                        {{form.departament}}
+                        {{form.city}}
+                    </div>
+                    <div>
+                        {{form.number_dui}}
+                        {{form.phone_number}}
+                    </div>
+                    <div>
+                        {{form.address_city}}
+                    </div>
+                    <textarea name="description" id="id_description" maxlength="500" placeholder="Descripcion"
+                        class="textarea-description">{{form.instance.description}}</textarea>
+                    <button type="submit" class="button-upgrade-profile">Upgrade</button>
+                </div>
+            </div>
+        </form>
+        <a href="{% url 'change_password' %}" class="change-password">Cambiar contraseña</a>
+    </section>
+    {% else %}
+    {% endif %}
+</main>
+{% include 'layouts/footer.html' %}
+{% endblock %}

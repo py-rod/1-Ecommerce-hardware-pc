@@ -47,7 +47,7 @@
             <!-- DROPDOWN CATEGORIES -->
             <div class="dropdown-categories">
                 <button class="dropbtn" onclick="myFunction()">
-                    Categories
+                    Categorias
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                         style="fill: white ;">
                         <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
@@ -100,14 +100,13 @@
                 </button>
                 <ul class="dropdown-menu mt-2">
                     <li>
-                        <a class="dropdown-item" href="#">
-                            Profile
+                        <a class="dropdown-item" href="{% url 'profile' %}">
+                            Perfil
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
-
-                            New Category
+                        <a class="dropdown-item" href="{% url 'my_orders' %}">
+                            Mis ordenes
                         </a>
                     </li>
                     <li>
@@ -117,7 +116,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item" href="{% url 'logout' %}">
-                            Logout
+                            Cerrar sesión
                         </a>
                     </li>
 
@@ -133,13 +132,18 @@
                 </button>
                 <ul class="dropdown-menu mt-3">
                     <li>
-                        <a class="dropdown-item" href="#">
-                            Profile
+                        <a class="dropdown-item" href="{% url 'profile' %}">
+                            Perfil
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'my_orders' %}">
+                            Mis ordenes
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{% url 'logout' %}">
-                            Logout
+                            Cerrar sesión
                         </a>
                     </li>
 
@@ -152,8 +156,8 @@
                 <img src="{% static 'icons/user-not-login.svg' %}" alt="user-not-login">
                 <div>
                     <p>
-                        Hello, Sign In</br>
-                        <span>Your Account</span>
+                        Hola! Registrate</br>
+                        <span>Tu Cuenta</span>
                     </p>
 
                 </div>

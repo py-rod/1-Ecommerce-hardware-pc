@@ -26,7 +26,7 @@ class Carousel(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = "Upload images for carousel"
+        verbose_name_plural = "Select products to see in carousel"
         db_table = "Images_Carousel"
 
     def __str__(self):

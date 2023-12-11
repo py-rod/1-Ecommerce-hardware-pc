@@ -1,0 +1,114 @@
+.section-1-form-profile {
+    margin: 0 auto;
+    padding: 60px 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* CONTENT IMAGE, NAME AND DESCRIPTION*/
+
+.content-image-profile {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+.image-profile {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* CONTENT NAME AND DESCRIPTION USER */
+.content-name-description {
+    border-left: 1px solid var(--border-color);
+    padding-left: 20px;
+}
+
+/* FULL NAME USER */
+.content-name-description>p:nth-child(1) {
+    font-size: 2.5rem;
+    color: var(--primary-color2);
+    font-weight: 600;
+}
+
+
+/* DESCRIPTION USER */
+.content-name-description>p:nth-child(2) {
+    text-wrap: pretty;
+    color: rgb(45, 53, 80);
+}
+
+
+
+/* CONTENT INPUTS  */
+
+.content-inputs {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-inputs>div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.content-inputs>div>input {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #fff;
+    padding: 10px 10px;
+    line-height: 1.25rem;
+    border-radius: 0.3125rem;
+    border: 1px solid rgb(187, 187, 187);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.content-inputs>div>input:focus {
+    outline: none;
+    background-color: inherit;
+}
+
+.textarea-description {
+    resize: vertical;
+    width: 100%;
+    min-height: 70px;
+    padding: 10px;
+    max-height: 150px;
+    margin-top: 30px;
+    border-radius: 0.3125rem;
+    border: 1px solid rgb(187, 187, 187);
+    background-color: #fff;
+}
+
+.textarea-description:focus {
+    border: none;
+    outline: rgb(187, 187, 187) solid 1px;
+    background-color: inherit;
+}
+
+.button-upgrade-profile {
+    margin-top: 30px;
+    display: block;
+    width: fit-content;
+    padding: 8px 30px;
+    border: none;
+    background-color: var(--primary-color3);
+    color: white;
+    border-radius: 5px;
+}
+
+
+/* CHANGE PASSWORD */
+.change-password {
+    display: block;
+    width: fit-content;
+    margin-top: 30px;
+    color: var(--primary-color3);
+    text-decoration: none;
+}

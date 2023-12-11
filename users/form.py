@@ -48,14 +48,14 @@ class UpdateProfile(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(UpdateProfile, self).__init__(*args, **kwargs)
-        self.fields["first_name"].widget.attrs["placeholder"] = "First name"
-        self.fields["last_name"].widget.attrs["placeholder"] = "Last name"
-        self.fields["username"].widget.attrs["placeholder"] = "Username"
-        self.fields["email"].widget.attrs["placeholder"] = "Email"
+        self.fields["first_name"].widget.attrs["placeholder"] = "Nombre"
+        self.fields["last_name"].widget.attrs["placeholder"] = "Apellido"
+        self.fields["username"].widget.attrs["placeholder"] = "Nombre de usuario"
+        self.fields["email"].widget.attrs["placeholder"] = "Correo"
         self.fields["email"].widget.attrs["readonly"] = True
-        self.fields["city"].widget.attrs["placeholder"] = "City"
-        self.fields["departament"].widget.attrs["placeholder"] = "Departament"
-        self.fields["address_city"].widget.attrs["placeholder"] = "Address"
-        self.fields["phone_number"].widget.attrs["placeholder"] = "Phone number"
-        self.fields["number_dui"].widget.attrs["placeholder"] = "Number DUI"
-        self.fields["description"].widget.attrs["placeholder"] = "Description"
+        self.fields["city"].widget.attrs["placeholder"] = "Ciudad"
+        self.fields["departament"].widget.attrs["placeholder"] = "Departamento"
+        self.fields["address_city"].widget.attrs["placeholder"] = "Direccion"
+        self.fields["phone_number"].widget.attrs["placeholder"] = "Numero de telefono"
+        self.fields["number_dui"].widget.attrs["placeholder"] = "Numbero de DUI"
+        self.fields["description"].widget.attrs["placeholder"] = "Descripcion"

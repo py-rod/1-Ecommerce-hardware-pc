@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/my-orders.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Hardware sv | My orders{% endblock %}
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+<main class="main-my-orders">
+    <section class="section-conten padding-y bg">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-9">
+                    <article class="card">
+                        <header class="card-header">
+                            <strong class="d-inline-block mr-3">Your order history</strong>
+
+                        </header>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Orden #</th>
+                                                <th scope="col">Nmbre de facturacion</th>
+                                                <th scope="col">Telefono</th>
+                                                <th scope="col">Total del pedido</th>
+                                                <th scope="col">Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for order in orders %}
+                                            <tr>
+                                                <th scope="row"><a
+                                                        href="{% url 'order_detail' order.order_number %}">{{order.order_number}}</a>
+                                                </th>
+                                                <td>{{order.full_name}}</td>
+                                                <td>{{order.phone}}</td>
+                                                <td>${{order.order_total}}</td>
+                                                <td>{{order.created}}</td>
+                                            </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div> <!-- row.// -->
+                        </div> <!-- card-body .// -->
+
+                    </article> <!-- order-group.// -->
+                </main>
+            </div> <!-- row.// -->
+        </div>
+
+
+    </section>
+</main>
+{% include 'layouts/footer.html' %}
+{% endblock %}

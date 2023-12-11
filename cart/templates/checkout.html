@@ -16,31 +16,31 @@
                 class="form-profile w-100 rounded">
                 {% csrf_token %}
                 <div>
-                    <input type="text" name="first_name" id="id_first_name" placeholder="First name" required
+                    <input type="text" name="first_name" id="id_first_name" placeholder="Nombre" required
                         maxlength="100">
-                    <input type="text" name="last_name" id="id_last_name" placeholder="Last name" required
+                    <input type="text" name="last_name" id="id_last_name" placeholder="Apellido" required
                         maxlength="100">
                 </div>
                 <div>
-                    <input type="email" name="email" maxlength="254" required id="id_email" placeholder="Email">
+                    <input type="email" name="email" maxlength="254" required id="id_email" placeholder="Correo">
 
-                    <input type="text" name="phone_number" id="id_phone_number" placeholder="Phone number" required
-                        maxlength="50">
+                    <input type="text" name="phone_number" id="id_phone_number" placeholder="Numero de telefono"
+                        required maxlength="50">
                 </div>
                 <div>
-                    <input type="text" name="departament" id="id_departament" placeholder="Departament" required
+                    <input type="text" name="departament" id="id_departament" placeholder="Departamento" required
                         maxlength="150">
 
-                    <input type="text" name="city" id="id_city" placeholder="City" required maxlength="100">
+                    <input type="text" name="city" id="id_city" placeholder="Ciudad" required maxlength="100">
 
                 </div>
                 <div>
-                    <input type="text" name="number_dui" id="id_number_dui" placeholder="Number DUI" required
+                    <input type="text" name="number_dui" id="id_number_dui" placeholder="Numero de DUI" required
                         maxlength="9">
-                    <input type="text" name="address_line" id="id_address_line" placeholder="Address" required
+                    <input type="text" name="address_line" id="id_address_line" placeholder="Direccion" required
                         maxlength="250">
                 </div>
-                <button type="submit" class="button-upgrade-profile mt-4">Save and continue</button>
+                <button type="submit" class="button-upgrade-profile mt-4">Guardar y continuar</button>
             </form>
         </div>
 
@@ -49,9 +49,9 @@
             <table class="table table-borderless h-100">
                 <thead class="table-head text-uppercase">
                     <tr>
-                        <th scope="col">Product</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
                     </tr>
                 </thead>
                 <tbody class="table-body h-100">

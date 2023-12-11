@@ -58,23 +58,23 @@
 
         <ul class="content-payment">
             <li>
-                <h5 class="fw-bolder">Total price:</h5>
+                <h5 class="fw-bolder">Precio total:</h5>
                 <p>${{total}}</p>
             </li>
             <li>
-                <h5 class="fw-bolder">Tax:</h5>
+                <h5 class="fw-bolder">Impuestos:</h5>
                 <p>${{tax}}</p>
             </li>
             <li>
-                <h5 class="fw-bolder">Grand total:</h5>
+                <h5 class="fw-bolder">Total general:</h5>
                 <p>${{grand_total}}</p>
             </li>
             <li class="text-center">
                 <img src="{% static 'images/payments.png' %}" alt="Payment method images" height="26">
             </li>
             <li>
-                <a href="{% url 'checkout' %}" class="d-block btn btn-primary">Checkout</a>
-                <a href="{% url 'home' %}" class="d-block btn btn-light mt-3">Continue Shooping</a>
+                <a href="{% url 'checkout' %}" class="d-block btn btn-primary">Pasar por caja</a>
+                <a href="{% url 'home' %}" class="d-block btn btn-light mt-3">Continuar comprando</a>
             </li>
         </ul>
     </section>

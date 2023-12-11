@@ -13,17 +13,17 @@
 
 <main>
     <section class="section-1-singin">
-        <h3>Sign in to your account</h3>
+        <h3>Acceda a su cuenta</h3>
         <form action="{% url 'signin' %}" method="POST" class="form-login-user">
             {% csrf_token %}
             <input type="email" name="username" id="id_username" required autocomplete="email" autofocus maxlength="254"
-                placeholder="Enter email">
-            <input type="password" name="password" id="id_password" required placeholder="Enter password">
-            <button type="submit" class="button-login-account">Login</button>
+                placeholder="Introducir correo">
+            <input type="password" name="password" id="id_password" required placeholder="Introducir contraseña">
+            <button type="submit" class="button-login-account">Iniciar sesión</button>
         </form>
-        <a href="#" class="forgot-password-link"><span class="text-dark">or </span>Forgot your
-            password?</a>
-        <p class="go-signin mt-3">No account yet? <a href="{% url 'signup' %}">Sign up</a></p>
+        <a href="{% url 'forgot_password' %}" class="forgot-password-link">¿Olvidó su
+            contraseña?</a>
+        <p class="go-signin mt-3">¿Aún no tiene cuenta? <a href="{% url 'signup' %}">Registrate</a></p>
     </section>
 </main>
 {% endblock %}
