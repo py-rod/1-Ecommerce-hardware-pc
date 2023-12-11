@@ -1,0 +1,85 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Checkout{% endblock %}
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+<main class="main-checkout">
+    {% include 'layouts/messages.html' %}
+    <section class="section-1-checkout">
+        <div class="content-direction">
+            <form action="{% url 'place_order' %}" method="POST" enctype="multipart/form-data"
+                class="form-profile w-100 rounded">
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="first_name" id="id_first_name" placeholder="First name" required
+                        maxlength="100">
+                    <input type="text" name="last_name" id="id_last_name" placeholder="Last name" required
+                        maxlength="100">
+                </div>
+                <div>
+                    <input type="email" name="email" maxlength="254" required id="id_email" placeholder="Email">
+
+                    <input type="text" name="phone_number" id="id_phone_number" placeholder="Phone number" required
+                        maxlength="50">
+                </div>
+                <div>
+                    <input type="text" name="departament" id="id_departament" placeholder="Departament" required
+                        maxlength="150">
+
+                    <input type="text" name="city" id="id_city" placeholder="City" required maxlength="100">
+
+                </div>
+                <div>
+                    <input type="text" name="number_dui" id="id_number_dui" placeholder="Number DUI" required
+                        maxlength="9">
+                    <input type="text" name="address_line" id="id_address_line" placeholder="Address" required
+                        maxlength="250">
+                </div>
+                <button type="submit" class="button-upgrade-profile mt-4">Save and continue</button>
+            </form>
+        </div>
+
+
+        <div class="content-product-list rounded border p-1">
+            <table class="table table-borderless h-100">
+                <thead class="table-head text-uppercase">
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body h-100">
+                    {% for cart_item in cart_items %}
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="{{cart_item.product.image.url}}" alt="{{cart_item.product.product_name}}"
+                                    class="image-product">
+                            </figure>
+                            <figcaption>
+                                <a href="{{cart_item.product.get_url}}"
+                                    class="text-dark">{{cart_item.product.product_name}}</a>
+                            </figcaption>
+                        </td>
+                        <td>
+                            <p class="text-center">{{cart_item.quantity}}</p>
+                        </td>
+                        <td>
+                            <p class="price">$ {{ cart_item.sub_total }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+{% include 'layouts/footer.html' %}
+
+{% endblock %}

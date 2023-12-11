@@ -1,0 +1,157 @@
+.main-product-detail {
+    border-top: 1px solid var(--border-color);
+}
+
+
+.section-1-content-product {
+    padding: 60px 30px;
+}
+
+
+
+/* CONTENT URL TOP */
+.div-content-url-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: gray;
+}
+
+.div-content-url-top>a {
+    text-decoration: none;
+    color: gray;
+    transition: ease-in-out .2s;
+}
+
+.div-content-url-top>a:hover {
+    color: var(--primary-color3);
+}
+
+
+.div-content-url-top>span:nth-child(5) {
+    color: var(--primary-color2);
+}
+
+
+
+/* THIS IS THE CONTENT INFORMATION PRODUCT */
+.content-image-product {
+    background-color: #F5F6F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-detail-product {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.content-detail {
+    padding: 0 50px;
+}
+
+.content-detail>h3 {
+    font-weight: 500;
+    color: var(--primary-color2);
+}
+
+/* CONTENT STOCK AND STAR */
+
+.content-in-stock-star {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.content-in-stock-star>span {
+    color: var(--primary-color3);
+    font-size: 13px;
+    background-color: #F0F8FF;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* CONTENT PRICES */
+
+.content-prices {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* IF PRODUCT CONTENT OFFER PRICE */
+
+.old-price {
+    color: gray;
+    text-decoration: line-through;
+    font-size: 20px;
+}
+
+.offer-price {
+    color: var(--primary-color2);
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* IF PRODUCT DONT CONTENT OFFER PRICE */
+.normal-price {
+    color: var(--primary-color2);
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+
+
+/* CONTENT PAYMENT */
+.content-payment {
+    background-color: #F5F6F8;
+    width: fit-content;
+    padding: 20px;
+}
+
+
+.content-payment>p {
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.content-payment>img {
+    width: 150px;
+    margin-top: 20px;
+}
+
+/* ADD PRODUCT TO CART */
+.add-cart {
+    display: block;
+    max-width: 500px;
+    background-color: var(--primary-color1);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+
+
+/* SECTION 2 DESCRIPTION */
+
+
+.section-2-description {
+    border-top: 1px solid var(--border-color);
+    padding: 100px 30px 0;
+}

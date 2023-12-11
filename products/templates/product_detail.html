@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Hardware sv | {{title_window}}{% endblock %}
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+<main class="main-product-detail">
+    <section class="section-1-content-product">
+        <div class="div-content-url-top">
+            <a href="{% url 'home' %}">Inicio</a>
+            <span>></span>
+            <a href="{{product.series.get_url}}">{{product.series.title}}</a>
+            <span>></span>
+            <span>{{product.product_name}}</span>
+        </div>
+        <div class="content-detail-product">
+            <div class="content-image-product">
+                <img src="{{product.image.url}}" alt="{{product.product_name}}">
+            </div>
+            <div class="content-detail">
+                <h3>{{product.product_name}}</h3>
+                <div class="content-in-stock-star">
+                    <span>en-existencias</span>
+                    <span>start (reseñas 2)</span>
+                </div>
+                {% if product.offer_price > 0 %}
+                <div class="content-prices">
+                    <p class="old-price">${{product.old_price}}</p>
+                    <p class="offer-price">${{product.price}}.00</p>
+                </div>
+                {% else %}
+                <p class="normal-price">${{product.price}}</p>
+                {% endif %}
+
+                <div class="content-payment">
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: gray;">
+                            <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
+                        </svg>
+                        Devoluciones faciles en 30 dias
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: gray;">
+                            <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
+                        </svg>
+                        Seguro garantizado & pago seguro
+                    </p>
+                    <img src="{% static 'images/payments.png' %}" alt="Payments">
+                </div>
+
+                <a href="{% url 'add_cart' product.id %}" class="add-cart">Add to cart</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-2-description">
+        <h3>Descripcion</h3>
+        <div>
+            {{product.description|safe}}
+        </div>
+    </section>
+</main>
+{% include 'layouts/footer.html' %}
+{% endblock %}

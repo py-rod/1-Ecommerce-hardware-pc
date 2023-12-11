@@ -1,0 +1,89 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/order_complete.css' %}" type="text/css">
+{% endblock %}
+{% block title %}Hardware sv | Order has been complete{% endblock %}
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+
+<main class="main-order-complete">
+
+    <section class="section-order-complete">
+        <div class="content-home-text">
+            <h2>
+                <img src="{% static 'icons/check-order-complete.svg' %}" alt="check">
+                Pago Exitoso
+            </h2>
+            <a href="{% url 'home' %}">Seguir comprando</a>
+        </div>
+
+        <div class="container-infor-order">
+            <div class="content-logo-data-user">
+                <h2>Hardware sv<span>.</span></h2>
+                <div>
+                    <p>Facturado a</p>
+                    <p><strong>Nombre:</strong> {{order.full_name}}</p>
+                    <p><strong>Departamento:</strong> {{order.departament}}</p>
+                    <p><strong>Ciudad:</strong> {{order.city}}</p>
+                    <p><strong>Direccion:</strong> {{order.full_address}}</p>
+                </div>
+            </div>
+
+            <div class="content-order-id">
+                <p><strong>Orden:</strong> #{{order_number}}</p>
+                <p><strong>ID de transaccion:</strong> {{transID}}</p>
+                <p><strong>Fecha de orden:</strong> {{order.created_at}}</p>
+                <p><strong>Estatus:</strong> {{payment.status}}</li>
+            </div>
+
+
+            <div class="invoice-items">
+                <div class="table-responsive" style="overflow: hidden; outline: none;" tabindex="0">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="per70 text-center">Productos</th>
+                                <th class="per5 text-center">Cant</th>
+                                <th class="per25 text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in ordered_products %}
+                            <tr>
+                                <td>{{item.product.product_name}}
+                                </td>
+                                <td class="text-center">{{item.quantity}}</td>
+                                <td class="text-center">${{item.product_price}} USD</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2" class="text-right">Sub Total:</th>
+                                <th class="text-center">${{subtotal}} USD</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2" class="text-right">Impuestos:</th>
+                                <th class="text-center">${{order.tax}} USD</th>
+                            </tr>
+
+                            <tr>
+                                <th colspan="2" class="text-right">Grand Total:</th>
+                                <th class="text-center">${{order.order_total}} USD</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div class="invoice-footer mt-5">
+                <p class="text-center">Gracias por comprar con nosotros!</p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

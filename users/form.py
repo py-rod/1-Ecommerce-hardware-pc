@@ -3,6 +3,8 @@ from django import forms
 from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model
+# RESET PASSWORD
+from django.contrib.auth.forms import SetPasswordForm
 
 
 class UserCreationForm(UserCreationForm):
@@ -30,3 +32,30 @@ class AuthenticationForm(AuthenticationForm):
 
     username = forms.CharField(widget=forms.EmailInput(
         attrs={"type": "email", "autocomplete": "email", "autofocus": True}))
+
+
+# RESET PASSWORD OR FORGOT PASSWORD
+class SetPasswordForm(SetPasswordForm):
+    model = get_user_model()
+    fields = ["new_password1", "new_password2"]
+
+
+class UpdateProfile(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ["image", "username", "email", "first_name", "last_name", "city", "departament",
+                  "address_city", "phone_number", "number_dui", "description"]
+
+    def __init__(self, *args, **kwargs):
+        super(UpdateProfile, self).__init__(*args, **kwargs)
+        self.fields["first_name"].widget.attrs["placeholder"] = "First name"
+        self.fields["last_name"].widget.attrs["placeholder"] = "Last name"
+        self.fields["username"].widget.attrs["placeholder"] = "Username"
+        self.fields["email"].widget.attrs["placeholder"] = "Email"
+        self.fields["email"].widget.attrs["readonly"] = True
+        self.fields["city"].widget.attrs["placeholder"] = "City"
+        self.fields["departament"].widget.attrs["placeholder"] = "Departament"
+        self.fields["address_city"].widget.attrs["placeholder"] = "Address"
+        self.fields["phone_number"].widget.attrs["placeholder"] = "Phone number"
+        self.fields["number_dui"].widget.attrs["placeholder"] = "Number DUI"
+        self.fields["description"].widget.attrs["placeholder"] = "Description"

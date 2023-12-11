@@ -1,0 +1,156 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}" type="text/css">
+{% endblock %}
+{% block title %}{% endblock %}
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+{% include 'layouts/messages.html' %}
+{% if products %}
+<main class="main-content-products">
+    <section class="section-1-content-products">
+        <div class="div-content-search">
+            <h3>Cuadricula de busqueda</h3>
+            <div>
+                <a href="{% url 'home' %}">Inicio</a>
+                <span>></span>
+                <span>Busqueda de productos</span>
+            </div>
+        </div>
+        <ul class="ul-products">
+            {% for product in products %}
+            {% if product.offer_price > 0 %}
+            <li class="li-content-product">
+                {% if user.is_superuser %}
+                <div class="content-product-image">
+                    <div class="dropdown drop-options-products">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'icons/dot-vertical.svg' %}" alt="dot-menu">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                    </div>
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                        <span class="percentage-product">{{product.percentage}} OFF</span>
+                    </a>
+                </div>
+                {% else %}
+                <div class="content-product-image">
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                        <span class="percentage-product">{{product.percentage}} OFF</span>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="content-name-price-offer">
+                    <a href="#" title="{{product.product_name}}" class="name-product">
+                        {{product.product_name}}
+                    </a>
+                    <div class="content-product-price">
+                        <p class="p-offer-price">$ {{product.old_price}}</p>
+                        <p class="official-price">$ {{product.price}}</p>
+                    </div>
+
+                    <a href="{% url 'add_cart' product.id %}" class="add-to-cart">Add to cart</a>
+                </div>
+
+            </li>
+            {% else %}
+
+            <li class="li-content-product">
+                {% if user.is_superuser %}
+                <div class="content-product-image">
+                    <div class="dropdown drop-options-products">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'icons/dot-vertical.svg' %}" alt="dot-menu">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </ul>
+                    </div>
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                    </a>
+                </div>
+                {% else %}
+                <div class="content-product-image">
+                    <a href="#">
+                        <img src="{{product.image.url}}" alt="{{product.product_name}}">
+                    </a>
+                </div>
+                {% endif %}
+                <div class="content-name-price-offer">
+                    <a href="#" title="{{product.product_name}}" class="name-product">
+                        {{product.product_name}}
+                    </a>
+                    <div class="content-product-price">
+                        <p class="official-price">$ {{product.price}}</p>
+                    </div>
+
+                    <a href="{% url 'add_cart' product.id %}" class="add-to-cart">Add to cart</a>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+
+        <!-- PAGINATOR -->
+        <div class="content-paginator">
+            <nav aria-label="Page navigation example" class="mt-5">
+                {% if products.has_other_pages %}
+                <ul class="pagination">
+                    {% if products.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?q={{search_query}}&page={{products.previous_page_number}}">
+                            Previous
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Previous</a>
+                    </li>
+                    {% endif %}
+
+                    {% for i in products.paginator.page_range %}
+                    {% if products.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link" href="?q={{search_query}}&page={{i}}">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?q={{search_query}}&page={{i}}">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if products.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?q={{search_query}}&page={{products.next_page_number}}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+</main>
+{% else %}
+<main class="main-no-products">
+    <section class="section-1-no-products">
+        <img src="{% static 'images/no-product.webp' %}" alt="No products">
+    </section>
+</main>
+{% endif %}
+{% include 'layouts/footer.html' %}
+
+{% endblock %}

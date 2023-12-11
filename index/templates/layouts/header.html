@@ -65,8 +65,8 @@
             </div>
             <script src="{% static 'js/categories.js' %}"></script>
 
-            <form action="" method="POST" role="search" class="search-desk w-100">
-                <input type="text" name="" id="" placeholder="Search">
+            <form action="{% url 'search' %}" method="GET" role="search" name="q" class="search-desk w-100">
+                <input type="text" name="q" placeholder="Buscar">
                 <button type="submit">
                     <img src="{% static 'icons/search.svg' %}" alt="seach">
                 </button>

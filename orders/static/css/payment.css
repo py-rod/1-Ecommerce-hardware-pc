@@ -1,0 +1,50 @@
+.main-payment {
+    padding: 60px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+
+.section-1-payment {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.content-information {
+    width: 70%;
+}
+
+.content-information>h2 {
+    text-align: center;
+    color: var(--primary-color2);
+
+}
+
+.personal-data {
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+
+
+
+.content-payment {
+    width: 25%;
+    background-color: white;
+    padding: 20px;
+    margin: 0;
+    list-style-type: none;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.content-payment>li:nth-child(5) {
+    margin-top: 30px;
+}
+
+.content-payment>li:nth-child(5)>a {
+
+    text-decoration: none;
+}

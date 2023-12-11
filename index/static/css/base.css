@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
@@ -32,7 +34,7 @@ body {
 
 main {
     width: 100%;
-    max-width: 1900px;
+    max-width: 1500px;
     margin: 0 auto;
     flex: 1;
 }

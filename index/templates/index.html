@@ -33,7 +33,7 @@
                             <p class="text-offer">oferta exclusiva <span>{{image_carousel.series.percentage}}</span> de
                                 esta semana</p>
                             {% endif %}
-                            <a href="#" class="url-product">
+                            <a href="{{image_carousel.series.get_url}}" class="url-product">
                                 Comprar ahora
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                     <path
@@ -121,21 +121,21 @@
                             <li><a class="dropdown-item" href="#">Action</a></li>
                         </ul>
                     </div>
-                    <a href="#">
+                    <a href="{{recent_product.get_url}}">
                         <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
                         <span class="percentage-product">{{recent_product.percentage}} OFF</span>
                     </a>
                 </div>
                 {% else %}
                 <div class="content-product-image">
-                    <a href="#">
+                    <a href="{{recent_product.get_url}}">
                         <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
                         <span class="percentage-product">{{recent_product.percentage}} OFF</span>
                     </a>
                 </div>
                 {% endif %}
                 <div class="content-name-price-offer">
-                    <a href="#" title="{{recent_product.product_name}}" class="name-product">
+                    <a href="{{recent_product.get_url}}" title="{{recent_product.product_name}}" class="name-product">
                         {{recent_product.product_name}}
                     </a>
                     <div class="content-product-price">
@@ -160,19 +160,19 @@
                             <li><a class="dropdown-item" href="#">Action</a></li>
                         </ul>
                     </div>
-                    <a href="#">
+                    <a href="{{recent_product.get_url}}">
                         <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
                     </a>
                 </div>
                 {% else %}
                 <div class="content-product-image">
-                    <a href="#">
+                    <a href="{{recent_product.get_url}}">
                         <img src="{{recent_product.image.url}}" alt="{{recent_product.product_name}}">
                     </a>
                 </div>
                 {% endif %}
                 <div class="content-name-price-offer">
-                    <a href="#" title="{{recent_product.product_name}}" class="name-product">
+                    <a href="{{recent_product.get_url}}" title="{{recent_product.product_name}}" class="name-product">
                         {{recent_product.product_name}}
                     </a>
                     <div class="content-product-price">
@@ -213,21 +213,22 @@
                             <li><a class="dropdown-item" href="#">Action</a></li>
                         </ul>
                     </div>
-                    <a href="#">
+                    <a href="{{discount_product.get_url}}">
                         <img src="{{discount_product.image.url}}" alt="{{discount_product.product_name}}">
                         <span class="percentage-product">{{discount_product.percentage}} OFF</span>
                     </a>
                 </div>
                 {% else %}
                 <div class="content-product-image">
-                    <a href="#">
+                    <a href="{{discount_product.get_url}}">
                         <img src="{{discount_product.image.url}}" alt="{{discount_product.product_name}}">
                         <span class="percentage-product">{{discount_product.percentage}} OFF</span>
                     </a>
                 </div>
                 {% endif %}
                 <div class="content-name-price-offer">
-                    <a href="#" title="{{discount_product.product_name}}" class="name-product">
+                    <a href="{{discount_product.get_url}}" title="{{discount_product.product_name}}"
+                        class="name-product">
                         {{discount_product.product_name}}
                     </a>
                     <div class="content-product-price">
@@ -235,7 +236,7 @@
                         <p class="official-price">$ {{discount_product.price}}</p>
                     </div>
 
-                    <a href="#" class="add-to-cart">Add to cart</a>
+                    <a href="{{discount_product.get_url}}" class="add-to-cart">Add to cart</a>
                 </div>
 
             </li>
