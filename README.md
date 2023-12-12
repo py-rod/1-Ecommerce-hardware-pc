@@ -126,3 +126,7 @@ DEBUG=True
 EMAIL_FROM=[Colocar el correo electrónico con el que creaste la aplicación]
 EMAIL_HOST_USER=[Colocar el correo electrónico con el que creaste la aplicación]
 EMAIL_HOST_PASSWORD=[Colocar la llave que obtuviste al crear la aplicación]
+
+Para generar la SECRET_KEY, visita la siguiente página, copia una clave de 504 bits WPA y pégala en SECRET_KEY.
+
+Con estos pasos, la activación de cuenta debería funcionar perfectamente.
