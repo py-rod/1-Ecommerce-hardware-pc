@@ -120,13 +120,19 @@ Para que la activación de cuenta funcione, sigue estos pasos adicionales:
 
 5. Rellena y guarda el archivo `.env` con la siguiente información:
 
+
+Para generar la SECRET_KEY, visita la siguiente página:
+https://randomkeygen.com/
+copia una clave de 504 bits WPA y pégala en SECRET_KEY.
+
+Con estos pasos, la activación de cuenta debería funcionar perfectamente.
+
 ```dotenv
 SECRET_KEY=[Pegar la clave secreta generada de la página aquí]
 DEBUG=True
 EMAIL_FROM=[Colocar el correo electrónico con el que creaste la aplicación]
 EMAIL_HOST_USER=[Colocar el correo electrónico con el que creaste la aplicación]
-EMAIL_HOST_PASSWORD=[Colocar la llave que obtuviste al crear la aplicación]
+EMAIL_HOST_PASSWORD=[Colocar la llave que obtuviste al crear la aplicación]```
 
-Para generar la SECRET_KEY, visita la siguiente página, copia una clave de 504 bits WPA y pégala en SECRET_KEY.
 
-Con estos pasos, la activación de cuenta debería funcionar perfectamente.
+
